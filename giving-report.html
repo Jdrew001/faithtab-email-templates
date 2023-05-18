@@ -228,7 +228,7 @@
                                         <div style="background-color: #F5F5F5; padding: 1rem;margin: 0px 1rem">
                                           <p style="color: #A7A7A7; text-align: center;">February 25th, 2023</p>
                                           <h2 style="margin-top: 5px; text-align: center; font-size: 1.5rem; font-weight: 100">Giving Report</h2>
-                                          <p style=" text-align: center;">Drew Atkison</p>
+                                          <p style=" text-align: center;">{{firstname}} {{lastname}}</p>
                                         </div>
                                         <div></div>
                                       </div>
@@ -261,10 +261,10 @@
                                       <div>
                                         <div style="background-color: #F5F5F5; padding: 2rem 1rem;margin: 0px 1rem;">
                                           <p style="font-size: 1rem;">
-                                            Email: dtatkison@gmail.com
+                                            Email: {{ email }}
                                           </p>
                                           <p style="font-size: 1rem;">
-                                            Phone: 682-414-0386
+                                            Phone: {{ phone }}
                                           </p>
                                         </div>
                                         <div></div>
@@ -289,7 +289,7 @@
                                           </div>
                                           <div style="float: right;">
                                             <p style="font-size: 1rem;">
-                                              $100.00
+                                              ${{tithing}}
                                             </p>
                                           </div>
                                         </div>
@@ -314,6 +314,54 @@
                                   </tr>
                                 </tbody>
                               </table>
+                              {{#if offerings}}
+                                {{#each offerings}}
+                                  <table class="module" role="module" data-type="text" border="0" cellpadding="0"
+                                    cellspacing="0" width="100%" style="table-layout: fixed;"
+                                    data-muid="86d7a6d9-36af-4c0b-9d9c-c0f269680f9b" data-mc-module-version="2019-10-22">
+                                    <tbody>
+                                      <tr>
+                                        <td style="padding:18px 10px 18px 10px; line-height:25px; text-align:inherit;"
+                                          height="100%" valign="top" bgcolor="" role="module-content">
+                                          <div>
+                                            <div style="background-color: #F5F5F5; padding: 2rem 1rem;margin: 0px 1rem; padding-bottom: 3.4rem;">
+                                              <div style="float: left;">
+                                                <p style="font-size: 1rem;">
+                                                  {{this.label}}
+                                                </p>
+                                              </div>
+                                              <div style="float: right;">
+                                                <p style="font-size: 1rem;">
+                                                  ${{this.amount}}
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div></div>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                {{/each}}
+                              {{else}}
+                                <table class="module" role="module" data-type="text" border="0" cellpadding="0"
+                                  cellspacing="0" width="100%" style="table-layout: fixed;"
+                                  data-muid="86d7a6d9-36af-4c0b-9d9c-c0f269680f9b" data-mc-module-version="2019-10-22">
+                                  <tbody>
+                                    <tr>
+                                      <td style="padding:18px 10px 18px 10px; line-height:25px; text-align:inherit;"
+                                        height="100%" valign="top" bgcolor="" role="module-content">
+                                        <div>
+                                          <div style="background-color: #F5F5F5; padding: 2rem 1rem;margin: 0px 1rem;">
+                                            <p>No offerings added</p>
+                                          </div>
+                                          <div></div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              {{/if}}
                               <table class="module" role="module" data-type="text" border="0" cellpadding="0"
                                 cellspacing="0" width="100%" style="table-layout: fixed;"
                                 data-muid="86d7a6d9-36af-4c0b-9d9c-c0f269680f9b" data-mc-module-version="2019-10-22">
@@ -321,18 +369,15 @@
                                   <tr>
                                     <td style="padding:18px 10px 18px 10px; line-height:25px; text-align:inherit;"
                                       height="100%" valign="top" bgcolor="" role="module-content">
-                                      <div>
-                                        <div style="background-color: #F5F5F5; padding: 2rem 1rem;margin: 0px 1rem; padding-bottom: 3.4rem;">
-                                          <div style="float: left;">
-                                            <p style="font-size: 1rem;">
-                                              General Offering
-                                            </p>
-                                          </div>
-                                          <div style="float: right;">
-                                            <p style="font-size: 1rem;">
-                                              $100.00
-                                            </p>
-                                          </div>
+                                      <div style="padding: 0rem 0rem;margin: 0px 1rem;">
+                                        <div>
+                                          <p style="font-size: 1rem; font-weight: 100;">
+                                            Fee Covered: {{#if feeCovered}}
+                                            Yes
+                                            {{else}}
+                                            No
+                                            {{/if}}
+                                          </p>
                                         </div>
                                         <div></div>
                                       </div>
@@ -347,15 +392,15 @@
                                   <tr>
                                     <td style="padding:18px 10px 18px 10px; line-height:25px; text-align:inherit;"
                                       height="100%" valign="top" bgcolor="" role="module-content">
-                                      <div style="padding: 0rem 1rem;margin: 0px 1rem; padding-bottom: 4rem;">
+                                      <div style="padding: 0rem 0rem;margin: 0px 1rem; padding-bottom: 4rem;">
                                         <div style="float: left;">
-                                          <p style="font-size: 1.5rem; font-weight: 600;">
+                                          <p style="font-size: 1.5rem; font-weight: 100;">
                                             Total
                                           </p>
                                         </div>
                                         <div style="float: right;">
-                                          <p style="font-size: 1rem; font-size: 1.5rem; font-weight: 600;">
-                                            $100.00
+                                          <p style="font-size: 1rem; font-size: 1.5rem; font-weight: 100;">
+                                            ${{total}}
                                           </p>
                                         </div>
                                         <div></div>
@@ -373,7 +418,7 @@
                                       align="center">
                                       <a href="https://stripe.com">
                                         <img class="max-width" border="0"
-                                        style="display:block; opacity: 0.5; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:30% !important; width:30%; height:auto !important;"
+                                        style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:35% !important; width:30%; height:auto !important;"
                                         width="180" alt="" data-proportionally-constrained="true" data-responsive="true"
                                         src="http://cdn.mcauto-images-production.sendgrid.net/df8f02344b758210/acade95b-fac1-4685-a60b-880f176b6859/450x220.png">
                                       </a>
